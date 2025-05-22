@@ -2,16 +2,18 @@
 #include "ingredient.h"
 #include <iostream>
 using namespace std;
-int pizza::AfisareNumarPizze(){
+int Pizza::AfisareNumarPizze(){
     return numar_total_pizze;
 }
-pizza::pizza() {
+Pizza::Pizza() {
     numar_total_pizze++;
-    ingrediente.push_back(ingredient("aluat",500));
-    ingrediente.push_back(ingredient("sos de rosii",20));
-    ingrediente.push_back(ingredient("branza",20));
+    denumire="pizza";
+    pret=20;
+    ingrediente.push_back(Ingredient("aluat",500));
+    ingrediente.push_back(Ingredient("sos de rosii",20));
+    ingrediente.push_back(Ingredient("branza",20));
     }
-void pizza::BlatSubtire(){
+void Pizza::BlatSubtire(){
     blat_subtire=true;
 }
-int pizza::numar_total_pizze=0;
+int Pizza::numar_total_pizze=0;

@@ -1,6 +1,6 @@
 #pragma once 
 #include "pizza.h"
-class pizza_diavola: public pizza{
+class PizzaDiavola: public Pizza{
     public:
-        pizza_diavola();
+        PizzaDiavola();
 };

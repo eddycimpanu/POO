@@ -2,9 +2,11 @@
 #include "pizza_diavola.h"
 using namespace std;
 
-pizza_diavola::pizza_diavola(){
-    ingrediente.push_back(ingredient("salam picant",500));
-    ingrediente.push_back(ingredient("ardei iute",50));
-    ingrediente.push_back(ingredient("busuioc",30));
-    ingrediente.push_back(ingredient("parmigiano",30));
+PizzaDiavola::PizzaDiavola(){
+    denumire="pizza diavola"; 
+    pret=35;  
+    ingrediente.push_back(Ingredient("salam picant",500));
+    ingrediente.push_back(Ingredient("ardei iute",50));
+    ingrediente.push_back(Ingredient("busuioc",30));
+    ingrediente.push_back(Ingredient("parmigiano",30));
 }

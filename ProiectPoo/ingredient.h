@@ -3,15 +3,16 @@
 #include <iostream>
 using namespace std;
 
-class ingredient {
+
+class Ingredient {
 private:
     string nume;
     int cantitate; 
 public:
-    ingredient();
-    ingredient(string nume);
-    ingredient(string nume,int cantitate);
-    void ScimbareCantitate(int cantitate);
+    Ingredient();
+    Ingredient(string nume);
+    Ingredient(string nume,int cantitate);
+    void SchimbareCantitate(int cantitate);
     string AfisareNume() const;
     int AfisareCantitate();
 };

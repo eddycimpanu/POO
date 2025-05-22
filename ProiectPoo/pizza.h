@@ -1,8 +1,8 @@
 #pragma once
 #include "produs.h"
-class pizza : public produs{
+class Pizza : public Produs{
     public:
-        pizza();
+        Pizza();
         void BlatSubtire();
         static int AfisareNumarPizze();
     private:
