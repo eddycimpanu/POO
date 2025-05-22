@@ -2,24 +2,24 @@
 #include <iostream>
 using namespace std;
 
-ingredient::ingredient(){
+Ingredient::Ingredient(){
     nume="Necunoscut";
     cantitate=0;
 }
-ingredient::ingredient(string nume){
+Ingredient::Ingredient(string nume){
     this->nume=nume;
     cantitate=0;
 }
-ingredient::ingredient(string nume,int cantitate){
+Ingredient::Ingredient(string nume,int cantitate){
     this->nume=nume;
     this->cantitate=cantitate;
 }
-void ingredient::ScimbareCantitate(int cantitate){
+void Ingredient::SchimbareCantitate(int cantitate){
     this->cantitate=cantitate;
 }
-int ingredient::AfisareCantitate(){
+int Ingredient::AfisareCantitate(){
     return cantitate;
 }
-string ingredient::AfisareNume() const{
+string Ingredient::AfisareNume() const{
     return nume;
 }
