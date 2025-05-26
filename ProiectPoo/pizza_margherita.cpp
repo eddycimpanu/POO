@@ -2,7 +2,8 @@
 #include "pizza_margherita.h"
 using namespace std;
 
-pizza_margherita::pizza_margherita(){
-    ingrediente.push_back(ingredient("mozzarella ",500));
-    ingrediente.push_back(ingredient("frunze de busuioc",500));
+PizzaMargherita::PizzaMargherita(){
+    denumire="pizza margherita";
+    AdaugareIngredient("mozzarella ",500,0,3,30);
+    AdaugareIngredient("frunze de busuioc",500,1,0.4,0.3);
 }

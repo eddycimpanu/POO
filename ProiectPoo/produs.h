@@ -3,20 +3,31 @@
 #include "ingredient.h"
 #include <string>
 
-using namespace std;
-class produs{
+class Produs{
     public:
-        float AfisarePret();
+        Produs();
+        float AfisarePret() const;
+        std::string AfisareDenumire() const;
         int AfisareTimpProducere();
         void AfisareIngrediente();
         void SchimbarePret(float pret);
         void SchimbareTimpProducere(int timp);
-        void AdaugareIngredient(const ingredient& ing);
-        void StergereIngredient(const ingredient& ing);
+        void AdaugareIngredient(const Ingredient& ing);
+        void StergereIngredient(const Ingredient& ing);
+        bool AfisareEsteDePost();
+        virtual void Afisare(std::ostream& out) const;
+        friend std::ostream& operator<<(std::ostream& out, const Produs& p);
+        virtual ~Produs() = default;
+        void SchimbareDenumire(std::string denumire);
+        int GetCalorii();
     protected:
-        vector<ingredient> ingrediente;
+        void VerificareEsteDePost();
+        std::vector<Ingredient> ingrediente;
+        float pret;
+        std::string denumire;
+        void ActualizarePret();
     private:
-        float pret=-1;
         int timp_de_producere=-1;
         bool este_de_post;
-};
+        int calorii;
+    };
