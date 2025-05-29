@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "comanda.h"
 #include "pizza_quattro_stagioni.h"
 #include "pizza_quattro_carne.h"
@@ -6,6 +7,7 @@
 #include "pizza_diavola.h"
 #include "pizza_margherita.h"
 #include "pizza_kebab.h"
+#include "pizza.h"
 #include <vector>
 #include <string>
 
@@ -21,6 +23,10 @@ public:
     void AdaugarePizzaDiavola();
     void AdaugareComanda();
     void AfisarePizzeComandaActuala() const;
+    int GetNumarPizze() const;
+    int GetNumarComenzi() const;
+    int GetNumarComenziLivrate() const;
+    void IncrementareComenziLivrate();
     void StergerePizzaComandaActuala(int index);
     int NumarComandaActuala() const;
     void ResetareComandaActuala();
@@ -35,6 +41,10 @@ public:
     int AfisareNumarComenzi();
     void AdaugarePizzaPersonalizata();
     void AdaugareNumePizzaPersonalizataInComandaActuala(std::string denumire);
+    void IntroducereDateComandaActuala(std::string nume,std::string adresa,std::string telefon);
+    void SetSumaBaniIncasati(int suma);
+    int GetSumaBaniIncasati();
+    void LivrareComandaActuala();
     void AfisareCompozitie() const;
     void AdaugareMozzarella();
     void AdaugareParmezan();
@@ -65,4 +75,6 @@ private:
     std::vector<Comanda*> comenzi;
     int index_comanda_actuala;
     static int numar_total_comenzi;
+    int numar_comenzi_livrate=0;
+    int suma_bani_incasati=0;
 };

@@ -341,8 +341,18 @@ void UserInterface::_AfisareMeniuAdaugareComanda() const{
             std::cin>>ceva;
             break;
         case 5:
+            {
+            std::string adresa,nume_client,telefon;
+            std::cout<<"Scrie adresa de livrare a comenzii: ";
+            std::cin>>adresa;
+            std::cout<<"Scrie numele clientului: ";
+            std::cin>>nume_client;
+            std::cout<<"Scrie telefonul: ";
+            std::cin>>telefon;
+            manager_comenzi->IntroducereDateComandaActuala(nume_client,adresa,telefon);
             optiune=0;
             break;
+            }
         case 0:
             manager_comenzi->StergereComandaActuala();
             break;
@@ -413,7 +423,8 @@ void UserInterface::_AfisareComenziManagerPizzerie() const{
     std::cout << "2. Vizualizare comenzi\n";
     std::cout << "3. Modifica o comanda\n";
     std::cout << "4. Sterge o comanda\n";
-    std::cout << "5. Finalizeaza o comanda\n";
+    std::cout << "5. Livreaza o comanda\n";
+    std::cout << "6. Detalii pizzerie\n";
     std::cout << "0. Iesire\n";
     std::cout << "Alege o optiune: ";
 }
@@ -423,6 +434,16 @@ void UserInterface::_AfisareComenzi() const{
     int ceva;
     std::cout<<"Scrie un numar pentru a te intoarce inapoi: ";
     std::cin>>ceva;
+}
+
+void UserInterface::_AfisareMeniuLivrareComanda()const{
+    system("cls");
+    int numar_comanda;
+    manager_comenzi->AfisareComenzi();
+    std::cout<<"Scrie numarul comenzii pe care vrei sa o livrezi: ";
+    std::cin>>numar_comanda;
+    manager_comenzi->SchimbareIndexComandaActuala(numar_comanda);
+    manager_comenzi->LivrareComandaActuala();
 }
 
 void UserInterface::_AfisareStergereComanda() const{
@@ -455,7 +476,10 @@ void UserInterface::AfisareManagerPizzerie() const{
             _AfisareStergereComanda();
             break;
         case 5:
-            std::cout << "Finalizare Comanda";
+            _AfisareMeniuLivrareComanda();
+            break;
+        case 6:
+            _AfisareMeniuDetaliiPizzerie();
             break;
         case 0:
             system("cls");
@@ -466,4 +490,15 @@ void UserInterface::AfisareManagerPizzerie() const{
         }
 
     } while (optiune != 0);
+}
+void UserInterface::_AfisareMeniuDetaliiPizzerie() const{
+    system("cls");
+    std::cout << "--- Manager Pizzerie ---\n";
+    std::cout << "Suma de bani incasata este: "<<manager_comenzi->GetSumaBaniIncasati()<<'\n';
+    std::cout << "Numarul de comenzi livrate: "<<manager_comenzi->GetNumarComenziLivrate()<<'\n';
+    std::cout << "Numarul de comenzi in pregatire: "<<manager_comenzi->GetNumarComenzi()<<'\n';
+    std::cout << "Numarul de pizze produse: "<<manager_comenzi->GetNumarPizze()<<'\n';
+    std::string ceva;
+    std::cout << "Scrie un numar pt a te intoarce inapoi: ";
+    std::cin >> ceva;
 }

@@ -17,7 +17,41 @@ Comanda::Comanda(const Comanda& comanda){
     for(int i=0;i<comanda.pizze.size();i++)
         pizze.push_back(new Pizza(*comanda.pizze[i]));
 }
-
+void Comanda::SetPret(int pret)
+{
+    this->pret=pret;
+}
+int Comanda::GetPret(){
+    return pret;
+}
+void Comanda::ActualizarePret(){
+    pret=0;
+    for(int i=0;i<pizze.size();i++)
+        pret=pret+pizze[i]->AfisarePret();
+}
+void Comanda::AfisareDateLivrare() const {
+    std::cout << "Nume: " << livrare.nume_client << "\n";
+    std::cout << "Adresa: " << livrare.adresa << "\n";
+    std::cout << "Telefon: " << livrare.telefon << "\n";
+}
+void Comanda::SetNumeClient(std::string nume){
+    livrare.nume_client=nume;
+} 
+void Comanda::SetAdresaClient(std::string adresa){
+    livrare.adresa=adresa;
+} 
+void Comanda::SetTelefonClient(std::string telefon){
+    livrare.telefon=telefon;
+} 
+std::string Comanda::GetNumeClient() const{
+    return livrare.nume_client;
+}
+std::string Comanda::GetAdresaClient() const{
+    return livrare.adresa;
+}
+std::string Comanda::GetTelefonClient() const{
+    return livrare.telefon;
+}
 void Comanda::AfisareNumarComanda() const {
     std::cout << "Numarul comenzii: " << numar_comanda <<'\n';
 }

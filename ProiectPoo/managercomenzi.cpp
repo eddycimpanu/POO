@@ -1,8 +1,24 @@
 #include "managercomenzi.h"
-#include "comanda.h"
 
 void ManagerComenzi::AdaugareNumePizzaPersonalizataInComandaActuala(std::string denumire){
     comenzi[index_comanda_actuala]->AdaugareNumePizzaPersonalizata(denumire);
+}
+void ManagerComenzi::IntroducereDateComandaActuala(std::string nume,std::string adresa,std::string telefon){
+    comenzi[index_comanda_actuala]->SetNumeClient(nume);
+    comenzi[index_comanda_actuala]->SetAdresaClient(adresa);
+    comenzi[index_comanda_actuala]->SetTelefonClient(telefon);
+}
+int ManagerComenzi::GetNumarComenzi() const{
+    return numar_total_comenzi;
+}
+int ManagerComenzi::GetNumarComenziLivrate() const{
+    return numar_comenzi_livrate;
+}
+int ManagerComenzi::GetNumarPizze() const{
+    return Pizza::GetNumarPizze();
+}
+void ManagerComenzi::IncrementareComenziLivrate(){
+    numar_comenzi_livrate++;
 }
 void ManagerComenzi::StergereIngredient(std::string nume){
     comenzi[index_comanda_actuala]->StergereIngredient(nume);
@@ -134,6 +150,7 @@ void ManagerComenzi::StergereModificariComandaActuala() {
 }
 void ManagerComenzi::AfisarePizzeComandaActuala() const {
     comenzi[index_comanda_actuala]->AfisarePizzeComanda();
+    comenzi[index_comanda_actuala]->AfisareDateLivrare();
 }
 void ManagerComenzi::ResetareComandaActuala() {
     comenzi[index_comanda_actuala]->ResetareComanda();
@@ -161,10 +178,24 @@ void ManagerComenzi::SchimbareIndexComandaActuala(int index) {
 int ManagerComenzi::NumarComandaActuala() const{
     return index_comanda_actuala+1;
 }
+void ManagerComenzi::SetSumaBaniIncasati(int suma){
+    suma_bani_incasati=suma;
+}
+int ManagerComenzi::GetSumaBaniIncasati(){
+    return suma_bani_incasati;
+}
+void ManagerComenzi::LivrareComandaActuala() {
+    comenzi[index_comanda_actuala]->ActualizarePret();
+    IncrementareComenziLivrate();
+    SetSumaBaniIncasati(GetSumaBaniIncasati()+comenzi[index_comanda_actuala]->GetPret());
+    StergereComandaActuala();
+}
 void ManagerComenzi::AfisareComenzi() const {
     for (int i=0;i<comenzi.size();i++) {
         comenzi[i]->AfisareNumarComanda();
         comenzi[i]->AfisarePizzeComanda();
+        comenzi[i]->AfisareDateLivrare();
+        std::cout<<"------------------------------\n";
     }
 }
 

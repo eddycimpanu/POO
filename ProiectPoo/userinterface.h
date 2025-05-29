@@ -9,6 +9,7 @@ class UserInterface{
     void AfisareManagerPizzerie() const;
     private:
     ManagerComenzi* manager_comenzi;
+    void _AfisareMeniuDetaliiPizzerie() const;
     void _AfisareMeniuModificareComanda() const;
     void _AfisareComenziMeniuModificareComanda() const;
     void _AfisareMeniuAdaugarePizzaInComanda() const;
@@ -33,4 +34,6 @@ class UserInterface{
     void _AfisareOptiuniAdaugareIngredientCondimenteSiExtra() const;
     void _AfisareOptiuniAdaugareIngredientLegumeSiToppinguriVegetale() const;
     void _AfisareMeniuStergereIngredient() const;
+    void _AfisareMeniuLivrareComanda() const;
+
 };

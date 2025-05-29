@@ -2,7 +2,7 @@
 
 int main()
 {
-    Pizzerie pizzerie;
-    pizzerie.run();
+    Pizzerie pizzerie; //instantiere obiect pizzerie
+    pizzerie.run(); // pornim programul efectiv
     return 0; 
 }

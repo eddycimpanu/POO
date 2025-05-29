@@ -7,6 +7,10 @@ public:
     ~Comanda();
     Comanda();
     Comanda(const Comanda& comanda);
+    void SetPret(int pret);
+    int GetPret();
+    void ActualizarePret();
+    void AfisareDateLivrare() const;
     void SchimbareNumarComanda(int numar_comanda);
     void AfisareNumarComanda() const;
     void AdaugarePizza(Pizza* pizza);
@@ -42,10 +46,23 @@ public:
     void AdaugareUsturoi();
     void AdaugareChilli();
     void AfisareDetaliiPizza();
+    void SetNumeClient(std::string nume);
+    void SetTelefonClient(std::string telefon);
+    void SetAdresaClient(std::string adresa);
+    std::string GetNumeClient() const;
+    std::string GetTelefonClient() const;
+    std::string GetAdresaClient() const;
 
 private:
     std::vector<Pizza*> pizze;
     int numar_comanda;
     bool platita = false;
     int index_pizza_actuala;
+    int pret;
+    struct DateLivrare {
+        std::string nume_client;
+        std::string adresa;
+        std::string telefon;
+    };
+    DateLivrare livrare;
 };

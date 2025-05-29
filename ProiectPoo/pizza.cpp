@@ -2,7 +2,7 @@
 #include "ingredient.h"
 #include <iostream>
 using namespace std;
-int Pizza::AfisareNumarPizze(){
+int Pizza::GetNumarPizze(){
     return numar_total_pizze;
 }
 Pizza::Pizza() {

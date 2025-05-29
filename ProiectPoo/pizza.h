@@ -3,7 +3,7 @@
 class Pizza : public Produs{
     public:
         Pizza();
-        static int AfisareNumarPizze();
+        static int GetNumarPizze();
         void AdaugareIngredient(const Ingredient& ingredient);
         void AdaugareIngredient(std::string nume);
         void AdaugareIngredient(std::string nume,int cantitate);
